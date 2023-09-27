@@ -14,9 +14,16 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@mdx-js/loader": "^2.3.0",
+    "@next/mdx": "^13.5.3",
+    "@tailwindcss/typography": "^0.5.10",
+    "gray-matter": "^4.0.3",
+    "marked": "^9.0.3",
     "next": "12.1.5",
+    "next-mdx-remote": "^4.4.1",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",

@@ -1,8 +1,11 @@
-import Head from "next/head";
-import Image from "next/image";
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import Link from 'next/link'
+import Image from 'next/image'
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+const Home = ({ projects }) => {
   return (
     <div className={styles.container}>
       <main className="xl:max-w-5xl md:max-w-2xl md:px-0 sm:px-10 px-6 mx-auto text-center my-20">
@@ -30,6 +33,37 @@ export default function Home() {
         </p>
         <section className="max-w-2xl mx-auto mt-10">
           <p className="text-white text-bold text-2xl text-left mb-5">
+            Proyectos
+          </p>
+          {projects.slice(0).reverse().map((post, index) => (
+            post.frontMatter.featured &&
+            <Link href={'/projects/' + post.slug} passHref key={index}>
+          <div className="text-left mb-4 px-7 py-3.5 bg-gray-900 border border-gray-700 rounded-sm cursor-pointer flex justify-start">
+              <div className="">
+                <Image
+                  src={post.frontMatter.thumbnailUrl}
+                  className="img-fluid mt-1 rounded-start"
+                  alt="thumbnail"
+                  width={125}
+                  height={80}
+                  objectFit="cover"
+                />
+              </div>
+              <div className="ml-10">
+                <p className="text-blue-500 text-2xl text-bold">{post.frontMatter.title}</p>
+                <p className="text-white text-sm">
+                {post.frontMatter.description}
+                </p>
+                <p className="card-text text-gray-400">
+                <small className="text-muted">{post.frontMatter.date}</small>
+                </p>
+              </div>
+          </div>
+        </Link>
+      ))}
+        </section>
+        <section className="max-w-2xl mx-auto mt-10">
+          <p className="text-white text-bold text-2xl text-left mb-5">
             Articulos
           </p>
           <div className="text-left mb-4">
@@ -53,27 +87,6 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className="max-w-2xl mx-auto mt-10">
-          <p className="text-white text-bold text-2xl text-left mb-5">
-            Proyectos
-          </p>
-          <a href="#">
-            <div className="text-left mb-4 px-7 py-3.5 bg-gray-900 border border-gray-700 rounded-sm">
-              <p className="text-blue-500 text-2xl text-bold">PelisSearch</p>
-              <p className="text-white text-sm">
-                Aplicación que te permite buscar información acerc...
-              </p>
-            </div>
-          </a>
-          <a href="#">
-            <div className="text-left mb-4 px-7 py-3.5 bg-gray-900 border border-gray-700 rounded-sm">
-              <p className="text-blue-500 text-2xl text-bold">PelisSearch</p>
-              <p className="text-white text-sm">
-                Aplicación que te permite buscar información acerc...
-              </p>
-            </div>
-          </a>
-        </section>
       </main>
 
       <footer className={styles.footer}>
@@ -91,3 +104,25 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const files = fs.readdirSync(path.join('projects'))
+
+  const projects = files.map(filename => {
+    const markdownWithMeta = fs.readFileSync(path.join('projects', filename), 'utf-8')
+    const { data: frontMatter } = matter(markdownWithMeta)
+
+    return {
+      frontMatter,
+      slug: filename.split('.')[0]
+    }
+  })
+
+  return {
+    props: {
+      projects
+    }
+  }
+}
+
+export default Home

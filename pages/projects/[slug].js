@@ -12,16 +12,18 @@ const components = { Nav, Button, SyntaxHighlighter }
 const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
   return (
     <div className="my-5 max-w-4xl mx-auto">
-      <h1 className="text-white text-3xl mb-4 mt-5 font-semibold">{title}</h1>
+      <h1 className="text-white text-4xl mb-4 mt-5 font-semibold text-center">{title}</h1>
       <div className="text-white">
-      <MDXRemote {...mdxSource} components={components}/>
+      <article class="prose text-white prose-white mx-auto">
+        <MDXRemote {...mdxSource} components={components}/>
+      </article>
       </div>
     </div>
   )
 }
 
 const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join('articles'))
+  const files = fs.readdirSync(path.join('projects'))
 
   const paths = files.map(filename => ({
     params: {
@@ -36,7 +38,7 @@ const getStaticPaths = async () => {
 }
 
 const getStaticProps = async ({ params: { slug } }) => {
-  const markdownWithMeta = fs.readFileSync(path.join('articles',
+  const markdownWithMeta = fs.readFileSync(path.join('projects',
     slug + '.mdx'), 'utf-8')
 
   const { data: frontMatter, content } = matter(markdownWithMeta)

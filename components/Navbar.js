@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faMedium } from '@fortawesome/free-brands-svg-icons'
 import Link from 'next/link'
 
 export default function Navbar() {
@@ -16,6 +17,7 @@ export default function Navbar() {
                     <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Articulos</a>
                     <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Acerca de</a>
                     <a href="#" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faGithub} /></a>
+                    <a href="#" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faMedium} /></a>
                     <a href="#" className="text-2xl text-white hover:text-gray-400"><FontAwesomeIcon icon={faTwitter} /></a>
                 </div>
             </div>
