@@ -13,12 +13,14 @@ export default function Navbar() {
                 <Link href="/"><p className="font-semibold text-3xl text-white hidden md:block cursor-pointer">JocaDev</p></Link>
                 <p className="font-semibold text-3xl text-white block md:hidden">JD</p>
                 <div className="flex items-center">
-                    <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Proyectos</a>
+                    {/**
+                     * <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Proyectos</a>
                     <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Articulos</a>
                     <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Acerca de</a>
-                    <a href="#" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faGithub} /></a>
-                    <a href="#" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faMedium} /></a>
-                    <a href="#" className="text-2xl text-white hover:text-gray-400"><FontAwesomeIcon icon={faTwitter} /></a>
+                     */}
+                    <a href="https://github.com/jocadevone" target="_BLANK" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faGithub} /></a>
+                    <a href="https://medium.com/@jocadevone" target="_BLANK" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faMedium} /></a>
+                    <a href="https://twitter.com/jocablock" target="_BLANK" className="text-2xl text-white hover:text-gray-400"><FontAwesomeIcon icon={faTwitter} /></a>
                 </div>
             </div>
         </div>
