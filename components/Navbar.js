@@ -18,9 +18,9 @@ export default function Navbar() {
                     <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Articulos</a>
                     <a href="#" className="text-white mr-5 hover:text-gray-400 hover:underline">Acerca de</a>
                      */}
-                    <a href="https://github.com/jocadevone" target="_BLANK" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faGithub} /></a>
-                    <a href="https://medium.com/@jocadevone" target="_BLANK" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faMedium} /></a>
-                    <a href="https://twitter.com/jocablock" target="_BLANK" className="text-2xl text-white hover:text-gray-400"><FontAwesomeIcon icon={faTwitter} /></a>
+                    <a href="https://github.com/jocadevone" target="_BLANK" rel="noreferrer" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faGithub} /></a>
+                    <a href="https://medium.com/@jocadevone" target="_BLANK" rel="noreferrer" className="text-2xl text-white hover:text-gray-400 mr-5"><FontAwesomeIcon icon={faMedium} /></a>
+                    <a href="https://twitter.com/jocablock" target="_BLANK" rel="noreferrer" className="text-2xl text-white hover:text-gray-400"><FontAwesomeIcon icon={faTwitter} /></a>
                 </div>
             </div>
         </div>

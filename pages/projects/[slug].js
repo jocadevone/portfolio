@@ -14,7 +14,7 @@ const PostPage = ({ frontMatter: { title, date }, mdxSource }) => {
     <div className="my-5 max-w-4xl mx-auto">
       <h1 className="text-white text-4xl mb-4 mt-5 font-semibold text-center">{title}</h1>
       <div className="text-white">
-      <article class="prose text-white prose-white mx-auto">
+      <article className="prose text-white prose-white mx-auto">
         <MDXRemote {...mdxSource} components={components}/>
       </article>
       </div>
